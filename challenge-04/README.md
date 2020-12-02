@@ -7,15 +7,16 @@ um único parâmetro como argumento. Essa função deve retornar `true` se o
 equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
-?
+var istruthy = function(x) {
+return x ? "true" : "false";
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
-?
+istruthy(0)
 
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
-?
+istruthy(10)
 
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
@@ -29,35 +30,44 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 - `assentos` - Number - cinco por padrão
 - `quantidadePessoas` - Number - zero por padrão
 */
-?
+var carro = {marca:"Bmw", modelo:"foda",placa:"br01", ano:2004, cor:"Vermelho",quantasportas:4, assentos:5, quantidadepessoas:0};
 
 /*
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
 passado por parâmetro.
 */
-?
-
+carro.mudarcor = function(x) {
+carro.cor=x;
+return "a cor do carro agora é "+x;
+}
 /*
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
-?
-
+carro.obtercor = function() {
+return carro.cor;
+}
 /*
 Crie um método chamado `obterModelo` que retorne o modelo do carro.
 */
-?
+carro.obtermodelo = funciton() {
+return carro.modelo;
+}
 
 /*
 Crie um método chamado `obterMarca` que retorne a marca do carro.
 */
-?
+carro.obtermodelo = function() {
+return carro.modelo;
+}
 
 /*
 Crie um método chamado `obterMarcaModelo`, que retorne:
 "Esse carro é um [MARCA] [MODELO]"
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
-?
+carro.obtermarcamodelo = function() {
+return "esse carro e um "+carro.marca+' '+carro.modelo;
+}
 
 /*
 Crie um método que irá adicionar pessoas no carro. Esse método terá as
@@ -75,7 +85,19 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
+carro.ez = function(x) {
+var lotado = " Só cabem mais"
+var pesol
+var soma
+carro.quantidadepessoas = carro.quantidadepessoas + x
+carro.quantidadepessoas >= 5 ? lotado=" O carro já está lotado!" : " Só cabem mais"
+carro.quantidadepessoas===4 ? pesol="pessoa" : pesol=" pessoas";
+soma = 5 - carro.quantidadepessoas
+soma <= 0  ? soma='' : soma=soma
+lotado===" O carro já está lotado!" ? pesol="" : pesol=""
+
+return "Já temos "+carro.quantidadepessoas+" pessoas no carro"+lotado+soma+pesol
+
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -85,38 +107,38 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-?
+carro.obtercor()//vermelho
 
 // Mude a cor do carro para vermelho.
-?
+carro.mudarcor()//vermelho
 
 // E agora, qual a cor do carro?
-?
+carro.obtercor("vermelho")//vermelho
 
 // Mude a cor do carro para verde musgo.
-?
+carro.mudarcor("verde musgo")
 
 // E agora, qual a cor do carro?
-?
+carro.obtercor()//verde musgo
 
 // Qual a marca e modelo do carro?
-?
+carro.marcamodelo()//bmwfoda
 
 // Adicione 2 pessoas no carro.
-?
+carro.ez(2)//ja temos 2...so cabem mais 3   
 
 // Adicione mais 4 pessoas no carro.
-?
+carro.ez(4)//ja temos 6 pessoas...o carro esta lotado
 
 // Faça o carro encher.
-?
+carro.ez(0)//ja temos 6 pessoas...o carro esta lotado
 
 // Tire 4 pessoas do carro.
-?
+carro.quantidadepessoas-4//2
 
 // Adicione 10 pessoas no carro.
-?
+carro.ez(10)//12
 
 // Quantas pessoas temos no carro?
-?
+12
 ```
