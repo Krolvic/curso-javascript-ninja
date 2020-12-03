@@ -86,17 +86,18 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.ez = function(x) {
-var lotado = " Só cabem mais"
-var pesol
+var pesol ="pessoas"
 var soma
 carro.quantidadepessoas = carro.quantidadepessoas + x
-carro.quantidadepessoas >= 5 ? lotado=" O carro já está lotado!" : " Só cabem mais"
-carro.quantidadepessoas===4 ? pesol="pessoa" : pesol=" pessoas";
+carro.quantidadepessoas===4 ? pesol=" pessoa" : pesol=" pessoas";
+carro.quantidadepessoas >=5 ? pesol="" : pesol=pesol
 soma = 5 - carro.quantidadepessoas
 soma <= 0  ? soma='' : soma=soma
-lotado===" O carro já está lotado!" ? pesol="" : pesol=""
-
-return "Já temos "+carro.quantidadepessoas+" pessoas no carro"+lotado+soma+pesol
+if(carro.quantidadepessoas <= 4) {
+return "Já temos "+carro.quantidadepessoas+" pessoas no carro"+"so cabem mais"+soma+pesol;
+} else
+return "O carro esta lotado";
+}
 
 
 /*
