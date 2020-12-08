@@ -2,17 +2,25 @@
 Crie uma IIFE que envolva todo esse arquivo (inclusive esse comentário),
 e faça a indentação correta.
 */
+(function() {return:"
+Crie uma IIFE que envolva todo esse arquivo (inclusive esse comentário),
+e faça a indentação correta."}
 
 /*
 Sem alterar os códigos nos `console.log` abaixo, faça com que o retorno
 deles seja "true", usando os Wrapper Objects como "conversores" nos valores
 das variáveis. Analise o que está sendo impresso no console para saber como
-resolver o problema corretamente.
+resolver o problema corretamente
+/*
+Sem alterar os códigos nos `console.log` abaixo, faça com que o retorno
+deles seja "true", usando os Wrapper Objects como "conversores" nos valores
+das variáveis. Analise o que está sendo impresso no console para saber como
+resolver o problema corretamente"
 */
-var five = '5';
+var five = 5;
 console.log( five + ' é número?', typeof five === 'number' );
 
-var concat = 10 + 10;
+var concat = "20";
 console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
 
 /*
@@ -24,7 +32,7 @@ funcional, mas dessa vez, separando algumas responsabilidades.
 função receberá dois parâmetros e retornará a operação referente à sua
 propriedade, usando os valores passados por parâmetro.
 */
-// ?
+var operation = {'adc':function(x,y) {return x+y},'sub':function(x,y) {return x-y},'multi':function(x,y) {return x*y},'divi':function(x,y) {return x/y},'sobra':function(x,y) {return y%x}}
 
 /*
 Crie uma função chamada `isOperatorValid`, que receberá um operador por
@@ -36,8 +44,15 @@ parâmetro a ela é válido, ou seja, se ele é igual a '+', '-', '*', '/' ou
 Caso contrário, "false".
 - O desafio é fazer o retorno sem usar "if" ou "switch".
 */
-// ?
-
+function isoperatorvalid(x) {
+  var eoqthernario = false
+  x === "adc" ? eoqthernario = true : ""
+  x === "sub" ? eoqthernario = true : ""
+  x === "multi" ? eoqthernario = true : ""
+  x === "divi" ? eoqthernario = true : ""
+  x === "sobra" ? eoqthernario = true: ""
+  return eoqthernario 
+ 
 /*
 Agora vamos criar a calculadora.
 - Crie uma função chamada `calculator`, que receberá como parâmetro um
@@ -50,7 +65,29 @@ parâmetros;
 operador passado para a função "calculator", e passando para esse método
 os dois parâmetros da função de retorno de "calculator".
 */
-// ?
+  function calculator(x) {
+  if(x != "adc" && x != "sub" && x != "multi" && x != "divi" && x != "sobra")
+    return false
+    return function(p1,p2) {
+      if( typeof p1 != "number" || typeof p2 != "number")
+      return false;
+      switch(x) {
+        case "adc":
+          return p1+p2;
+          break
+        case "sub":
+          return p1-p2;
+          break
+        case "multi":
+          return p1*p2;
+          break
+        case "divi":
+          return p1/p2;
+          break
+        case "sobra":
+          return p2%p1;
+          break
+    }
 
 /*
 Crie uma função chamada "showOperationMessage" que recebe três parâmetros:
@@ -59,7 +96,8 @@ deve ser a frase:
 'A operação [NUMBER1] [OPERATOR] [NUMBER2] =';
 Essa função mostrará a mensagem da operação que criaremos mais abaixo.
 */
-// ?
+function showoperationmessage(x,y,z) {
+return 'A operação'+x+""+y+""+z
 
 /*
 Crie uma função chamada "showErrorMessage" que recebe um parâmetro: o
@@ -67,7 +105,9 @@ operador da operação cálculo, quando a operação não for válida.
 Essa função deverá retornar a frase:
 'Operação "[OPERATOR]" não permitida!'
 */
-// ?
+function showerrormessage(x) {
+  if(x != "adc" && x != "sub" && x != "multi" && x != "divi" && x != "sobra")
+  return 'Operação '+x+'não permitida!'
 
 /*
 Nossa calculadora está pronta! Agora vamos testá-la:
@@ -75,7 +115,9 @@ PASSO 1:
 - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
 "operationSignal", sem valor por enquanto.
 */
-// ?
+var number1 = 0
+var number2 = 0
+var operationsignal
 
 /*
 PASSO 2:
@@ -83,7 +125,13 @@ Atribua à variável operationSignal o operador de soma, e declare uma
 variável chamada "sum", que receba a função "calculator", passando por
 parâmetro a variável que recebeu o sinal da operação.
 */
-// ?
+var eoq = "adc"
+var eoq2 = "sub"
+var eoq3 = "multi"
+var eoq4 = "divi"
+var eoq5 = "sobra"
+operationsignal = eoq
+ var sum = calculator(operationsignal)
 
 /*
 PASSO 3:
@@ -97,17 +145,20 @@ parâmetros para o método "log" de "console":
 - O segundo, a função de soma, passando os dois operandos.
 - Se "sum" for "false", mostrar no console a mensagem de erro.
 */
-// ?
-
+number1 = 4
+  number2= 3
+console.log(showoperationmessage(number1,eoq,number2))
+console.log(sum(number1,number2))
+  
 /*
 Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
 divisão e resto. Crie variáveis com os nomes "subtraction",
 "multiplication", "division" e "mod".
 */
-// ?
 
 /*
 Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
 a mensagem de erro será mostrada no console.
 */
-// ?
+
+//
