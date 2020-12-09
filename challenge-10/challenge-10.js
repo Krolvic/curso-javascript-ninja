@@ -32,7 +32,8 @@ funcional, mas dessa vez, separando algumas responsabilidades.
 função receberá dois parâmetros e retornará a operação referente à sua
 propriedade, usando os valores passados por parâmetro.
 */
-var operation = {'adc':function(x,y) {return x+y},'sub':function(x,y) {return x-y},'multi':function(x,y) {return x*y},'divi':function(x,y) {return x/y},'sobra':function(x,y) {return y%x}}
+var operation = [function adc(x,y) {return x+y},function sub(x,y) {return x-y}, function multi(x,y) {return x*y}, function divi(x,y) {return x/y},function sobra(x,y) {return y%x}}
+var operation = ['adc':function(x,y) {return x+y},'sub':function(x,y) {return x-y},'multi':function(x,y) {return x*y},'divi':function(x,y) {return x/y},'sobra':function(x,y) {return y%x}}
 
 /*
 Crie uma função chamada `isOperatorValid`, que receberá um operador por
@@ -88,6 +89,7 @@ os dois parâmetros da função de retorno de "calculator".
           return p2%p1;
           break
     }
+      
 
 /*
 Crie uma função chamada "showOperationMessage" que recebe três parâmetros:
@@ -155,7 +157,27 @@ Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
 divisão e resto. Crie variáveis com os nomes "subtraction",
 "multiplication", "division" e "mod".
 */
-
+var eoq2 = "sub"
+number1 = 4
+  number2= 3
+console.log(showoperationmessage(number1,eoq2,number2))
+console.log(sum(number1,number2)) 
+ var eoq3 = "multi"
+ operationsignal = eoq2
+ var sum = calculator(operationsignal)                
+ console.log(showoperationmessage(number1,eoq3,number2))
+console.log(sum(number1,number2)) 
+ var eoq4 = "divi"
+operationsignal = eoq3
+ var sum = calculator(operationsignal                 
+ console.log(showoperationmessage(number1,eoq4,number2))
+console.log(sum(number1,number2))
+ var eoq5 = "sobra"
+operationsignal = eoq5
+ var sum = calculator(operationsignal)                 
+console.log(showoperationmessage(number1,eoq5,number2))
+console.log(sum(number1,number2))
+                 
 /*
 Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
 a mensagem de erro será mostrada no console.
