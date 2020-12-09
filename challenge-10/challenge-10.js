@@ -17,10 +17,10 @@ deles seja "true", usando os Wrapper Objects como "conversores" nos valores
 das variáveis. Analise o que está sendo impresso no console para saber como
 resolver o problema corretamente"
 */
-var five = 5;
+var five = Number(5);
 console.log( five + ' é número?', typeof five === 'number' );
 
-var concat = "20";
+var concat = String(10)+10;
 console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
 
 /*
@@ -32,8 +32,7 @@ funcional, mas dessa vez, separando algumas responsabilidades.
 função receberá dois parâmetros e retornará a operação referente à sua
 propriedade, usando os valores passados por parâmetro.
 */
-var operation = [function adc(x,y) {return x+y},function sub(x,y) {return x-y}, function multi(x,y) {return x*y}, function divi(x,y) {return x/y},function sobra(x,y) {return y%x}}
-var operation = ['adc':function(x,y) {return x+y},'sub':function(x,y) {return x-y},'multi':function(x,y) {return x*y},'divi':function(x,y) {return x/y},'sobra':function(x,y) {return y%x}}
+var operation = {'+':function(x,y) {return x+y},'-':function(x,y) {return x-y},'*':function(x,y) {return x*y},'/':function(x,y) {return x/y},'%':function(x,y) {return y%x}}
 
 /*
 Crie uma função chamada `isOperatorValid`, que receberá um operador por
@@ -46,13 +45,13 @@ Caso contrário, "false".
 - O desafio é fazer o retorno sem usar "if" ou "switch".
 */
 function isoperatorvalid(x) {
-  var eoqthernario = false
-  x === "adc" ? eoqthernario = true : ""
-  x === "sub" ? eoqthernario = true : ""
-  x === "multi" ? eoqthernario = true : ""
-  x === "divi" ? eoqthernario = true : ""
-  x === "sobra" ? eoqthernario = true: ""
-  return eoqthernario 
+  return (x=="+" || x=="-" || x=="*" || "/" || x=="%")
+}
+function isoperatorvalid(x) {
+  return operation[x] != undefined;
+}             
+             
+ 
  
 /*
 Agora vamos criar a calculadora.
@@ -67,28 +66,12 @@ operador passado para a função "calculator", e passando para esse método
 os dois parâmetros da função de retorno de "calculator".
 */
   function calculator(x) {
-  if(x != "adc" && x != "sub" && x != "multi" && x != "divi" && x != "sobra")
+  if(x != "+" && x != "-" && x != "*" && x != "/" && x != "%")
     return false
     return function(p1,p2) {
       if( typeof p1 != "number" || typeof p2 != "number")
       return false;
-      switch(x) {
-        case "adc":
-          return p1+p2;
-          break
-        case "sub":
-          return p1-p2;
-          break
-        case "multi":
-          return p1*p2;
-          break
-        case "divi":
-          return p1/p2;
-          break
-        case "sobra":
-          return p2%p1;
-          break
-    }
+      return operation[x](p1,p2)
       
 
 /*
@@ -108,7 +91,7 @@ Essa função deverá retornar a frase:
 'Operação "[OPERATOR]" não permitida!'
 */
 function showerrormessage(x) {
-  if(x != "adc" && x != "sub" && x != "multi" && x != "divi" && x != "sobra")
+  if(x != "+" && x != "-" && x != "*" && x != "/" && x != "%")
   return 'Operação '+x+'não permitida!'
 
 /*
@@ -127,12 +110,7 @@ Atribua à variável operationSignal o operador de soma, e declare uma
 variável chamada "sum", que receba a função "calculator", passando por
 parâmetro a variável que recebeu o sinal da operação.
 */
-var eoq = "adc"
-var eoq2 = "sub"
-var eoq3 = "multi"
-var eoq4 = "divi"
-var eoq5 = "sobra"
-operationsignal = eoq
+operationsignal = "+"
  var sum = calculator(operationsignal)
 
 /*
@@ -147,40 +125,76 @@ parâmetros para o método "log" de "console":
 - O segundo, a função de soma, passando os dois operandos.
 - Se "sum" for "false", mostrar no console a mensagem de erro.
 */
+ if(sum) {
 number1 = 4
-  number2= 3
-console.log(showoperationmessage(number1,eoq,number2))
+number2= 3
+console.log(showoperationmessage(number1,operationsignal,number2))
 console.log(sum(number1,number2))
-  
+} else(showerrormessage(operationsignal));
 /*
 Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
 divisão e resto. Crie variáveis com os nomes "subtraction",
 "multiplication", "division" e "mod".
 */
-var eoq2 = "sub"
+ operationsignal = "-"
+ var substraction = calculator(operationsignal)
+  if(substraction) {
 number1 = 4
-  number2= 3
-console.log(showoperationmessage(number1,eoq2,number2))
-console.log(sum(number1,number2)) 
- var eoq3 = "multi"
- operationsignal = eoq2
- var sum = calculator(operationsignal)                
- console.log(showoperationmessage(number1,eoq3,number2))
-console.log(sum(number1,number2)) 
- var eoq4 = "divi"
-operationsignal = eoq3
- var sum = calculator(operationsignal                 
- console.log(showoperationmessage(number1,eoq4,number2))
-console.log(sum(number1,number2))
- var eoq5 = "sobra"
-operationsignal = eoq5
- var sum = calculator(operationsignal)                 
-console.log(showoperationmessage(number1,eoq5,number2))
-console.log(sum(number1,number2))
-                 
+number2= 3
+console.log(showoperationmessage(number1,operationsignal,number2))
+console.log(substraction(number1,number2))
+} else(showerrormessage(operationsignal));
+       
+       
+       
+   operationsignal = "*"     
+  var multiplication = calculator(operationsignal)
+  if(multiplication) {
+number1 = 4
+number2= 3
+console.log(showoperationmessage(number1,operationsignal,number2))
+console.log(multiplication(number1,number2))
+} else(showerrormessage(operationsignal));
+       
+       
+       
+             
+
+   operationsignal = "/"     
+ var division = calculator(operationsignal)
+  if(division) {
+number1 = 4
+number2= 3
+console.log(showoperationmessage(number1,operationsignal,number2))
+console.log(division(number1,number2))
+} else(showerrormessage(operationsignal);
+       
+       
+       
+
+       
+       
+ operationsignal = "%"   
+ var mod = calculator(operationsignal)
+  if(mod) {
+number1 = 4
+number2= 3
+console.log(showoperationmessage(number1,operationsignal,number2))
+console.log(mod(number1,number2))
+} else(showerrormessage(operationsignal));
+              
+
 /*
 Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
 a mensagem de erro será mostrada no console.
 */
+  operationsignal = "l"   
+ var l = calculator(operationsignal)
+  if(l) {
+number1 = 4
+number2= 3
+console.log(showoperationmessage(number1,operationsignal,number2))
+console.log(l(number1,number2))
+  } else(showerrormessage(operationsignal));
 
 //
