@@ -31,8 +31,9 @@ Após o loop, mostre a frase:
 'The person has [COUNTER] properties'
 */
 for(var lop in person)
-  console.log('The'+lop+"of person is"+person[lop])
-var counter = lop
+  console.log('The'+lop+"of person is"+person[lop]),
+counter++;
+var counter
 console.log("the person has"+counter+"properties")
 
 
@@ -72,14 +73,12 @@ criado acima, só precisa ser reiniciado) números de 0 a 20, inclusive
 esses. Se o número for ímpar, pular para o próximo número.
 Mostrar no console os números do array.
 */
-var secret = 0 
 var numbers = []
-while(secret <= 20) {
-numbers.push(secret)
-if(numbers.length % 2 === 1) {
- continue
-if(numbers.length === 20) {
-  break
-console.log(numbers.length)
-console.log( 'Pares de 0 a 20:' );
-// ?
+for(var e = 0;  e < 20, e++)
+if(e%2 != 0) {
+  continue;
+}
+numbers.push(e);
+console.log(numbers)
+    
+
