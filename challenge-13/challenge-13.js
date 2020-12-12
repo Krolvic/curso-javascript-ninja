@@ -100,8 +100,9 @@ propriedades:
 - `id`: que será o índice do array `brasil`,
 - `estado`: que será o estado do array `brasil`.
 */
-var newbrasil = brasil.forEach(function(item,index) {
- console.log(index,item)
+var newbrasil = []
+brasil.forEach(function(item,index,array) {
+newbrasil.push({id:index,estado:item})   
 });
 
 
@@ -151,7 +152,7 @@ objeto desse array, e adicione a frase abaixo na propriedade `estado`:
 Atribua o novo array a uma variável chamada `map`.
 */
 var mape = newbrasil.map(function (index,item) {
-return 
+return newbrasil[index].item++
 })
 
 /*
