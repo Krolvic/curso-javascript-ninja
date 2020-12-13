@@ -9,14 +9,17 @@ elemento será um objeto no formato:
 Os números devem ser de 1 a 10.
 Mostre esse array no console.
 */
-console.log( 'Number Objects Array:' );
-// ?
+var numbersObjects = [{ number: 1 },{ number: 2 },{ number: 3 },{ number: 4 },{ number: 5 },{ number: 6 },{ number: 7 },{ number: 8 },{ number: 9 },{ number: 10 }]
+console.log( 'Number Objects Array:'+numbersObjects );
 
 /*
 Crie um array chamado `justNumbers`, que terá como elementos somente os
 números do array criado acima. Mostre esse novo array no console.
 */
-console.log( '\nJust Numbers:' );
+var JustNumber = numbersObjects.map(function(item) {
+return item.number;
+}); 
+console.log( '\nJust Numbers:'+JustNumber) 
 // ?
 
 /*
@@ -24,6 +27,8 @@ Crie um novo array chamado `justMod2Or3`, que receberá do array criado acima
 somente os números que forem divisíveis por 2 ou 3. Mostre esse novo array
 no console.
 */
+var justmod20r3 = JustNumber.map(function(item) {
+  return item%2 === 2 || item%2 
 console.log( '\nJust module of division by 2 or 3:' );
 // ?
 
