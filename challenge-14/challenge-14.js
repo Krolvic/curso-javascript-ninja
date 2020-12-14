@@ -28,7 +28,11 @@ somente os números que forem divisíveis por 2 ou 3. Mostre esse novo array
 no console.
 */
 var justmod20r3 = JustNumber.map(function(item) {
-  return item%2 === 2 || item%2 
+if(item%2 === 0 || item%3 === 0) {
+return item;
+} else
+return null   
+})
 console.log( '\nJust module of division by 2 or 3:' );
 // ?
 
@@ -41,15 +45,20 @@ O cálculo deve começar com zero.
 Mostre o resultado no console.
 */
 console.log( '\nOperation:' );
-// ?
-
+var operation = justmod20r3.reduce(function(acumulado,atual,index,array) {
+return acumulado + atual+1*atual
+}, 0)  
+   
 /*
 Faça o mesmo cálculo passado acima, mas começando do último item para o
 primeiro. O nome da variável deve ser operation2. Mostre o resultado no
 console.
 */
 console.log( '\nOperation 2:' );
-// ?
+var operation = justmod20r3.reduceRight(function(acumulado,atual,index,array) {
+return acumulado + atual+1*atual
+}, 0)  
+
 
 /*
 Crie um array chamado `name`. Cada elemento desse array deve ser uma sílaba
@@ -59,20 +68,26 @@ PS.: Lembra da língua do "P"? Não? A língua do "P" é uma brincadeira
 infantil, onde você coloca a letra "P" antes de cada sílaba de uma palavra
 falada, como se você estivesse falando em código xD
 */
+var name = ["p","n","a","p","t","h","a","n"]
+var namep = name.reduce(function(acumulado,atual,index,array) {
+return acumulado + atual
+},)  
 console.log( '\nSeu nome na língua do "P":' );
-// ?
+
 
 /*
 Crie uma variável chamada `inversedName`, que reduzirá o array em uma string
 e atribuirá o seu nome invertido (usando o array criado acima).
 */
 console.log( '\nInversed Name:' );
-// ?
+var inversedname = name.reduceRight(function(acumulado,atual,index,array) {
+return acumulado + atual
+},)  
 
 /*
 Mostre no console o array `numberObjects`.
 */
-console.log( '\nNumber objects' );
+console.log( '\nNumber objects'+numberObjects );
 // ?
 
 /*
@@ -85,14 +100,15 @@ Consegue prever o resultado? Deixe uma mensagem no console tentando explicar
 o que acontece ;)
 */
 console.log( '\nExiste um { number: 2 } em numberObjects?' );
-// ?
-
+var reponse 
+numbersObjects.indexOf(numbersObjects[2]) === 2 ? reponse =  "Existe um objeto { number: 2 } em numberObjects!" :  "Não existe um objeto { number: 2 } em numberObjects :(" 
 /*
 Fazendo o mesmo do exercício acima, mas começando a buscar do último índice,
 será que obtemos um resultado diferente? Faça a busca a partir do índice 2.
 */
 console.log( '\nE buscando a partir do último índice, o { number: 2 } existe?' );
-// ?
+var reponse 
+numbersObjects.lastindexOf(numbersObjects[2]) === 2 ? reponse =  "Existe um objeto { number: 2 } em numberObjects!" :  "Não existe um objeto { number: 2 } em numberObjects :(" 
 
 /*
 Verifique se `justMod2Or3` é um array. Se for, mostre-o no console, no
@@ -100,3 +116,4 @@ formato de String.
 */
 console.log( '\njustMod2Or3 é um array? Se for, a representação dele em String é:' );
 // ?
+justmod20r3.isArray() justmod20r3.toSring
