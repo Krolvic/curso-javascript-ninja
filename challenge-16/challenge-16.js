@@ -78,6 +78,10 @@ de qualquer tamanho, escrito de qualquer forma.
 Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
 */
 console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
-var myname = "nathan"
-myname.
+var myname = "Fernando"
+var myname = myname.split("a").join("A")
+var myname = myname.split("e").join("E")
+var myname = myname.split("i").join("I")
+var myname = myname.split("o").join("O")
+var myname = myname.split("u").join("U")  
 })()  
