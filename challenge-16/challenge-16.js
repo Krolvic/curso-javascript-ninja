@@ -1,3 +1,5 @@
+(function() {
+ "use strict"
 /*
 1. Envolva todo o conteúdo desse desafio em uma IIFE.
 2. Adicione a diretiva 'use strict';
@@ -14,7 +16,10 @@ Ex: no caso do nome ser "Fernando", deve mostrar as frases:
 E assim por diante, até a última.
 */
 console.log( 'As letras do seu nome:' );
-// ?
+var name = "sam"
+console.log(name.charAt(0)+" é a 1ª letra do meu nome.");
+console.log(name.charAt(1)+" é a 2ª letra do meu nome.");
+console.log(name.charAt(2)+" é a 3ª letra do meu nome.");  
 
 /*
 - Declare uma variável chamada `fullName`, que receba seu nome completo,
@@ -29,7 +34,12 @@ curso para fazer isso funcionar corretamente :)
 console.log para cada formato.
 */
 console.log( '\nNome convertido à partir de um slug:' );
-// ?
+var fullname = "sam-silva"
+var fullname01 = fullname.charAt(0,).toUpperCase()+fullname.substring(4,1)
+var fullname02 = fullname.charAt(4,).toUpperCase()+fullname.substring(9,5)
+var fullnametrue = fullname01+"-"+fullname02
+var fullnametrue = fullnametrue.split("-").join(" ")
+console.log(fullname+' '+fullnametrue)
 
 /*
 - Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
@@ -41,21 +51,22 @@ O resultado final deve ficar mais ou menos assim:
 5 nomes foi somente uma sugestão ;)
 */
 console.log( '\nMeus amigos:' );
-// ?
+var nomes =["roberto","fernanda","camilo","lixo","pano"]
+var nomesjunto = nomes.join(",").concat("são meus amigos")
 
 /*
 Usando o replace(), faça a string "Roberto" virar "Roberta".
 Mostre o resultado no console.
 */
 console.log( '\nEra "Roberto", agora é:' );
-// ?
+"Roberto".substring(6,0)+"Roberto".charAt(6).replace("o", "a")
 
 /*
 Mostre no console a parte "nando" da string "Fernando". Use o método que
 faz a busca do final para o início da string.
 */
 console.log( '\nParte de uma string:' );
-// ?
+"Fernando".substring(8,3)
 
 /*
 Declare uma variável chamada `myName`, que receba o seu primeiro nome,
@@ -67,4 +78,6 @@ de qualquer tamanho, escrito de qualquer forma.
 Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
 */
 console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
-// ?
+var myname = "nathan"
+myname.
+})()  
