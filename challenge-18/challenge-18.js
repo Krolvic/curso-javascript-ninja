@@ -1,3 +1,4 @@
+(funcition() {
 /*
 1. Envolva todo o conteúdo desse desafio em uma IIFE.
 2. Adicione a diretiva 'use strict';
@@ -15,16 +16,22 @@ eles! Use um console.log para cada CPF.
 - "101.123-131x32"
 */
 console.log( 'Limpando CPFs:' );
-// ?
-
+function cleanCPf(cpf) {
+return cpf.match(/\d/g).join("")
+}
+'04921434211'
 /*
 Usando os CPFs limpos acima, deixe-os com a formatação correta de CPF.
 Ex.: "999.999.999-99"
 Mostre o resultado no console.
 */
 console.log( '\nFormatando CPFs corretamente:' );
-// ?
-
+var cpfclean = cleanCPf("735 500 794 - 22")
+var limpe = /(\d{3})(\d{3})(\d{3})(\d{2})/g;
+function limpador(regex,grupo1,grupo2,grupo3,grupo4) {
+return grupo1+"."+grupo2+"."+grupo3+"-"+grupo4;
+}
+console.log(cpfclean.replace(limpe,limpador));
 /*
 Crie uma expressão regular que faça match com as palavras "junho" ou "julho",
 usando o mínimo de caracteres possíveis na regex.
@@ -37,8 +44,8 @@ O resultado deve ser:
 ["junho", "julho"]
 */
 console.log( '\nMatch com as palavras "junho" ou "julho" para a frase "Os meses de janeiro, junho e julho começam com a letra j.":' );
-// ?
-
+var text = "Os meses de janeiro, junho e julho começam com a letra j."
+text.match(/ju\w{3}/g)
 /*
 Crie uma expressão regular que faça o match com a abertura de uma tag
 HTML qualquer.
@@ -49,8 +56,8 @@ O resultado deve ser:
 ["<div>", "<section>", "<blockquote>"]
 */
 console.log( '\nMatch com a abertura de uma tag HTML:' );
-// ?
-
+var qualquer = "<div>, <section>, <blockquote>"
+qualquer.match(/<\w+>/g)
 /*
 Crie uma expressão regular que faça o match com uma tag HTML vazia, casando
 com a abertura e fechamento da tag.
@@ -61,14 +68,16 @@ O resultado deve ser:
 ["<li></li>", "<li></li>", "<span></span>"]
 */
 console.log( '\nMatch com tags HTML vazias (abertura e fechamento da tag):' );
-// ?
-
+var qualquer2 =  "<div><ul><li></li><li></li><li><span></span></li></ul></div>".
+qualquer2.match(/\<li\>\<\/li\>/)
+qualquer2.match(/\<li\>\<\/li\>/)
+qualquer2.match(/\<span\>\<\/span\>/)
 /*
 Vamos complicar um pouco agora :D
 
 Crie uma expressão regular que faça o match com um texto existente dentro de
 uma tag HTML. O texto deve ser capturado e substituído por:
-'O texto dentro da tag "[NOME DA TAG]" é "[TEXTO]"'
+'O texto dentro da tag O]"'
 
 Use a marcação abaixo para fazer o replace:
 "<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>"
@@ -86,4 +95,9 @@ https://regex101.com/#javascript e verifique se as capturas estão
 corretas, para depois aplicar no código ;)
 */
 console.log( '\nFazer replace dos textos das tags:' );
-// ?
+var texto2 = "<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>"
+var p1 = texto2.match(/<h1>Título da página<\/h1>/)
+var p2 = texto2.match(/<p>Este é um parágrafo<\/p>/)
+var p3 = texto2.match(/<footer>Rodapé<\/footer>/)
+p1 = p1.replace(/<h1>Título da página<\/h1>/,"<h1>titulo da pagina"+h1+"é "Título da página"</h1>")
+})()
