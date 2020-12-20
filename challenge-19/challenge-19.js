@@ -13,6 +13,7 @@ ela pode ser concatenada para gerar uma regex em tempo de execução,
 diferente da regex literal, onde toda a regex precisa estar pronta antes
 da utilização.
 */
+var justNumbersAndLetters = new RegExp( '[\\da-z]', 'gi' );
 
 /*
 - Usando o construtor de Regex, crie uma regex que case somente com números
@@ -24,8 +25,7 @@ linha, independente de quantos caracteres de número estiverem juntos.
 no console:
 */
 console.log( 'Regex para números usando o construtor:' );
-// ?
-
+var justnumbersregex = new RegExp("^\\d{1,2}","gm")
 /*
 Verifique se a regex acima casa com o texto na variável `text`, mostrando o
 resultado no console. O resultado deve ser:
@@ -33,7 +33,8 @@ resultado no console. O resultado deve ser:
 */
 var text = '10 anos.\n50 discos vendidos.\nE nem 10% dos meus amigos o conhece.';
 console.log( '\nNúmeros no início da linha do texto:\n' + text, '\n' );
-// ?
+text.match(justnumbersregex)
+
 
 /*
 - Crie uma regex que case com números no final de uma string. Atribua a
@@ -44,7 +45,7 @@ linha, independente de quantos caracteres de número estiverem juntos.
 Mostre a regex no console:
 */
 console.log( '\nRegex para números somente no final das linhas:' );
-// ?
+var numbersattheend = new RegExp("\\d+$","gm")
 
 /*
 Verifique se a regex acima casa com o texto na variável `otherText`,
@@ -54,7 +55,7 @@ O resultado deve ser:
 */
 var otherText = 'Silvio Santos, nome artístico de Senor Abravanel (Rio de Janeiro, 12\n de dezembro de 1930), é um apresentador de televisão e empresário brasileiro.\n Proprietário do Grupo Silvio Santos, que inclui empresas como a Liderança\n Capitalização (administradora da loteria Tele Sena), a Jequiti Cosméticos e o\n Sistema Brasileiro de Televisão (mais conhecido como SBT), Silvio Santos possui\n um patrimônio avaliado em aproximadamente 6\n bilhões de reais.';
 console.log( '\nNúmeros no final da linha:\n\n', otherText, '\n' );
-// ?
+otherText.match(numbersattheend)
 
 /*
 Vamos criar um método que vai testar se uma classe CSS existe em uma
@@ -81,4 +82,8 @@ para exemplificar.
 */
 var markup = '<main>\n  <div class="container">\n    <span class="text date"></span>\n    <p class=\'excerpt\'></p>\n  </div>\n</main>';
 console.log( '\nQuais classes CSS existem na marcação abaixo?\n\n', markup, '\n' );
+var regex = /<\w+>|<\/\w+>/
+function hasclass(markup,cssClass) {
+if(regex.test(markup
+}
 // ?
